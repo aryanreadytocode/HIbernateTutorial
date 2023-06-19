@@ -11,11 +11,15 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
+        <property name="cache.use_second_level_cache">true</property>
+        <property name="cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory   </property>
+
         <mapping class="org.aryan.Student" />
         <mapping class="org.aryan.Address" />
         <mapping class="com.manytoone.Question" />
         <mapping class="com.manytoone.Answer" />
         <mapping class="com.manytomanymap.Emp" />
         <mapping class="com.manytomanymap.Project" />
+        <mapping resource=" Person.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,9 +1,15 @@
 package org.aryan;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Student {
     @Id
     private int id;
@@ -18,6 +24,13 @@ public class Student {
         this.id = id;
         this.name = name;
         this.city = city;
+    }
+
+    public Student(int id, String name, String city, Certificate certificate) {
+        this.id = id;
+        this.name = name;
+        this.city = city;
+        this.certificate = certificate;
     }
 
     public Certificate getCertificate() {

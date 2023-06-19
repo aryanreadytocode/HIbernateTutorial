@@ -24,29 +24,39 @@ public class App
         SessionFactory factory = configuration.buildSessionFactory();
 
         // creating student
-        Student student = new Student(101, "RAJ", "Patna");
-        System.out.println(student);
+//        Student student = new Student(101, "RAJ", "Patna");
+//        System.out.println(student);
 
         // creating object of address class
-        Address ad = new Address();
-        ad.setStreet("street1");
-        ad.setCity("Patna");
-        ad.setOpen(true);
-        ad.setAddedDate(new Date());
-        ad.setX(258);
+//        Address ad = new Address();
+//        ad.setStreet("street1");
+//        ad.setCity("Patna");
+//        ad.setOpen(true);
+//        ad.setAddedDate(new Date());
+//        ad.setX(258);
         // reading image
-        FileInputStream fileInputStream = new FileInputStream("src/main/java/pic.png");
-        byte[] image = new byte[fileInputStream.available()];
-        ad.setImage(image);
+//        FileInputStream fileInputStream = new FileInputStream("src/main/java/pic.png");
+//        byte[] image = new byte[fileInputStream.available()];
+//        ad.setImage(image);
 
         Session session = factory.openSession();
 
-        session.beginTransaction();
-        Transaction tx = session.getTransaction();
+//        session.beginTransaction();
+        Transaction tx;
 
-        session.save(student);
-        session.save(ad);
-        tx.commit();
+
+        // insert n no of student
+        int count = 1000;
+        while (count <1050) {
+            tx = session.beginTransaction();
+            session.save(new Student(count, "Student"+count, "City"+count, new Certificate("Course"+count, count+"Hrs")));
+            tx.commit();
+            count++;
+        }
+
+//        session.save(student);
+//        session.save(ad);
+//        tx.commit();
         session.close();
 
 

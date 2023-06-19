@@ -20,6 +20,11 @@ public class Answer {
         this.question = question;
     }
 
+    public Answer(int answerId, String answer) {
+        this.answerId = answerId;
+        this.answer = answer;
+    }
+
     public Question getQuestion() {
         return question;
     }

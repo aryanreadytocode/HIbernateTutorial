@@ -9,7 +9,7 @@ public class Question {
     @Column(name = "question_id")
     private int questionId;
     private String question;
-    @OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "question", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Answer> answerList;
 
     public Question() {
